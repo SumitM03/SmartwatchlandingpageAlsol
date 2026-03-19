@@ -1,0 +1,234 @@
+/* --- Base Styles & Variables --- */
+:root {
+    --primary-color: #111111;
+    --secondary-color: #f5f5f7;
+    --text-color: #333333;
+    --text-light: #6e6e73;
+    --accent-blue: #0066cc;
+    --white: #ffffff;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+    background-color: var(--white);
+    line-height: 1.5;
+}
+
+/* --- Header --- */
+.header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 5%;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Nav */
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--accent-blue);
+}
+
+.btn-nav {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+}
+
+/* --- Hamburger --- */
+.menu-toggle {
+    display: none;
+    font-size: 1.6rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* --- Hero --- */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    padding: 2rem 5%;
+    min-height: 90vh;
+}
+
+.hero-image img {
+    max-width: 100%;
+    border-radius: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+.price {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* --- Purchase --- */
+.purchase-controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.quantity-selector {
+    display: flex;
+    background: var(--secondary-color);
+    border-radius: 20px;
+    padding: 0.3rem;
+}
+
+.qty-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+#quantity-display {
+    padding: 0 10px;
+}
+
+.add-to-cart-btn {
+    background: var(--accent-blue);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.add-to-cart-btn:hover {
+    transform: scale(1.05);
+}
+
+/* --- Features & Reviews --- */
+.features, .reviews {
+    padding: 5rem 5%;
+    text-align: center;
+}
+
+.feature-grid, .review-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card, .review-card {
+    background: #ffffff; /* solid contrast */
+    padding: 2rem;
+    border-radius: 15px;
+
+    /* Permanent contrast effects */
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+    transition: 0.3s;
+}
+
+.feature-card:hover, .review-card:hover {
+    transform: translateY(-5px);
+}
+
+/* --- Stars --- */
+.stars {
+    color: gold;
+    margin-bottom: 1rem;
+}
+
+/* --- Footer --- */
+.footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-light);
+}
+
+/* --- Animations --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.6s ease;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 5%;
+        background: white;
+        flex-direction: column;
+        width: 200px;
+        padding: 1rem;
+        border-radius: 10px;
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .purchase-controls {
+        flex-direction: column;
+    }
+}
